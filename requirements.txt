@@ -1,1 +1,3 @@
 docling==2.60.1
+langchain
+colorama

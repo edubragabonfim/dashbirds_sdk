@@ -6,6 +6,8 @@ from docling.document_converter import DocumentConverter
 from docling_core.types.doc.document import DoclingDocument
 from colorama import Fore, Style, init as init_colorama
 
+from .agents import clear_text_agent
+
 
 # Inits
 init_colorama()
@@ -51,11 +53,13 @@ def extract_document(source: str) -> dict:
     
     # Extract Content
     content = doc.export_to_markdown()
+    content_agent = clear_text_agent.invoke({'messages': [{'role': 'user', 'content': content}]})
+    response = content_agent['structured_output'].content
 
     # Remove Tags
     content = remove_unnecessary_tags(content)
 
-    result = {'file_name': file_name, 'content': content}
+    result = {'file_name': file_name, 'content': response}
 
     return result
 
@@ -74,12 +78,4 @@ def save_md_file(content: str, file_name: str , docs_path: str = 'C:\\Dashbirds_
 
 
 if __name__ == '__main__':
-    source = sys.argv[1]
-    result = extract_document(source)
-
-    print(Fore.BLUE + result['content'] + Style.RESET_ALL)
-
-    if input('Save File? ').lower() == 's':
-        save_md_file(result['content'], result['file_name'])
-    
-    print('Done!')
+    print('document_loaders.py')

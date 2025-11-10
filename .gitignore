@@ -1,3 +1,5 @@
 .venv
 .env
-tests.ipynb
+_drafts.ipynb
+dashbirds_sdk.egg-info
+dashbirds_sdk/__pycache__
