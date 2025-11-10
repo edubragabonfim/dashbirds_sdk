@@ -1,7 +1,7 @@
 import sys
 from colorama import Fore, Style
 
-from .document_loaders import extract_document, save_md_file
+from .f_document_loaders import extract_document, save_md_file
 from .cli_methods import check_params
 
 

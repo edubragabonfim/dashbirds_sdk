@@ -6,7 +6,7 @@ from docling.document_converter import DocumentConverter
 from docling_core.types.doc.document import DoclingDocument
 from colorama import Fore, Style, init as init_colorama
 
-from .agents import clear_text_agent
+from .a_agents import clear_text_agent
 
 
 # Inits
